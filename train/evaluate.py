@@ -13,7 +13,7 @@ transform = transforms.Compose([
 ])
 
 test_dataset = datasets.ImageFolder(
-    "train/dataset/chest_xray/test",
+    "dataset/chest_xray/test",
     transform=transform
 )
 
