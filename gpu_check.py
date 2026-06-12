@@ -1,8 +1,17 @@
 import torch
 
-print(torch.__version__)
-print(torch.version.hip)
+print("Torch:", torch.__version__)
+print("HIP:", torch.version.hip)
+print("Available:", torch.cuda.is_available())
+print("Count:", torch.cuda.device_count())
 
-print(torch.cuda.is_available())
+if torch.cuda.is_available():
+    print(torch.cuda.current_device())
 
-print(torch.cuda.get_device_name(0))
+
+x = torch.tensor([1,2,3], device="cuda")
+print(x)
+print(x.device)
+
+props = torch.cuda.get_device_properties(0)
+print(props)
