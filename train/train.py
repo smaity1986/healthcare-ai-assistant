@@ -114,7 +114,7 @@ for epoch in range(epochs):
 
         torch.save(
             model.state_dict(),
-            "../backend/models/best_model.pth"
+            "backend/models/best_model.pth"
         )
 
         print("Model Saved")
