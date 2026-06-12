@@ -43,6 +43,9 @@ model = efficientnet_b0(weights="DEFAULT")
 for param in model.parameters():
     param.requires_grad = False
 
+for param in model.features[-3:].parameters():
+    param.requires_grad = True
+
 model.classifier[1] = nn.Linear(1280, 2)
 
 model = model.to(device)
@@ -50,13 +53,14 @@ model = model.to(device)
 criterion = nn.CrossEntropyLoss()
 
 optimizer = torch.optim.Adam(
-    model.classifier.parameters(),
-    lr=0.001
+    filter(lambda p: p.requires_grad,
+           model.parameters()),
+    lr=1e-4
 )
 
 best_acc = 0
 
-epochs = 5
+epochs = 10
 
 for epoch in range(epochs):
 
