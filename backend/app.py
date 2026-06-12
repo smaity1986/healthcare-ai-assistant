@@ -8,7 +8,7 @@ from PIL import Image
 from backend.predict import predict_image
 
 app = FastAPI(
-    title="Healthcare Intelligence Assistant"
+    title="AI Chest X-Ray Screening Assistant"
 )
 
 app.add_middleware(

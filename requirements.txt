@@ -1,7 +1,13 @@
 torch
 torchvision
 fastapi
-uvicorn
+uvicorn[standard]
+gradio
+requests
 pillow
 python-multipart
 numpy
+pandas
+scikit-learn
+matplotlib
+tqdm

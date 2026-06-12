@@ -48,11 +48,11 @@ def analyze(image):
 
 
 with gr.Blocks(
-    title="Healthcare Intelligence Assistant"
+    title="AI Chest X-Ray Screening Assistant"
 ) as demo:
 
     gr.Markdown(
-        "# 🏥 Healthcare Intelligence Assistant"
+        "# 🏥 AI Chest X-Ray Screening Assistant"
     )
 
     gr.Markdown("## AMD Hardware Information")
@@ -66,6 +66,14 @@ with gr.Blocks(
 
     gr.Markdown(
         "Upload a Chest X-Ray image for analysis"
+    )
+
+    gr.Markdown(
+        """
+        ⚠️ Educational demonstration only.
+        This application is not a medical diagnosis system.
+        Consult qualified healthcare professionals.
+        """
     )
 
     image = gr.Image(
