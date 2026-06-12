@@ -1,4 +1,7 @@
 from torchvision import datasets
+import os
+
+print(os.getcwd())
 
 dataset = datasets.ImageFolder("dataset/train")
 
