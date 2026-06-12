@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Healthcare Intelligence Assistant</title>
+
+    <title>
+        Healthcare Intelligence Assistant
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        #result {
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+    </style>
+
 </head>
+
 <body>
 
-<h1>Healthcare Intelligence Assistant</h1>
+    <h1>
+        Healthcare Intelligence Assistant
+    </h1>
 
-<input type="file" id="image">
+    <input type="file" id="image">
 
-<button onclick="uploadImage()">
-Analyze
-</button>
+    <br><br>
 
-<pre id="result"></pre>
+    <button onclick="analyze()">
+        Analyze X-Ray
+    </button>
 
-<script src="app.js"></script>
+    <div id="result"></div>
+
+    <script src="app.js"></script>
 
 </body>
+
 </html>

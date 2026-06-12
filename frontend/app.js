@@ -1,24 +1,53 @@
-async function uploadImage() {
+async function analyze() {
 
     const file =
         document.getElementById("image")
-        .files[0];
+            .files[0];
 
-    const formData = new FormData();
+    if (!file) {
 
-    formData.append("file", file);
+        alert("Choose image");
 
-    const response = await fetch(
-        "http://localhost:8000/predict",
-        {
-            method: "POST",
-            body: formData
-        }
+        return;
+    }
+
+    const formData =
+        new FormData();
+
+    formData.append(
+        "file",
+        file
     );
 
-    const data = await response.json();
+    document.getElementById(
+        "result"
+    ).innerHTML =
+        "Analyzing...";
 
-    document.getElementById("result")
-        .innerText =
-        JSON.stringify(data, null, 2);
+    const response =
+        await fetch(
+            "http://localhost:8000/predict",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
+
+    const data =
+        await response.json();
+
+    document.getElementById(
+        "result"
+    ).innerHTML =
+
+        `
+Prediction: ${data.prediction}
+
+Confidence: ${data.confidence}%
+
+Risk: ${data.risk}
+
+Explanation:
+${data.explanation}
+`;
 }
