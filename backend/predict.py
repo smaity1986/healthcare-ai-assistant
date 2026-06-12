@@ -49,7 +49,11 @@ def predict_image(image):
 
         output = model(image)
 
+        print("Raw Output:", output)
+
         probs = torch.softmax(output, dim=1)
+
+        print("Probabilities:", probs)
 
         confidence, prediction = torch.max(
             probs,
