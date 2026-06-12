@@ -14,4 +14,7 @@ print(x)
 print(x.device)
 
 props = torch.cuda.get_device_properties(0)
-print(props)
+
+print("Architecture:", props.gcnArchName)
+print("Memory GB:", round(props.total_memory/1024**3))
+print("Compute Units:", props.multi_processor_count)
