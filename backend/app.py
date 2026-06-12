@@ -5,7 +5,7 @@ import torch
 
 from PIL import Image
 
-from predict import predict_image
+from backend.predict import predict_image
 
 app = FastAPI(
     title="Healthcare Intelligence Assistant"
