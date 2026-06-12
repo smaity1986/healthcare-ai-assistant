@@ -5,18 +5,23 @@ API_URL = "http://localhost:8000/predict"
 
 
 def get_gpu_info():
+    try:
+        response = requests.get(
+            "http://localhost:8000/gpu-info"
+        )
 
-    response = requests.get(
-        "http://localhost:8000/gpu-info"
-    )
+        gpu = response.json()
 
-    gpu = response.json()
+        return (
+            f"Architecture: {gpu['architecture']}\n"
+            f"Memory: {gpu['memory_gb']} GB\n"
+            f"Compute Units: {gpu['compute_units']}"
+        )
 
-    return (
-        f"Architecture: {gpu['architecture']}\n"
-        f"Memory: {gpu['memory_gb']} GB\n"
-        f"Compute Units: {gpu['compute_units']}"
-    )
+    except Exception as e:
+        return str(e)
+
+gpu_info_text = get_gpu_info()
 
 
 def analyze(image):
@@ -52,18 +57,11 @@ with gr.Blocks(
 
     gr.Markdown("## AMD Hardware Information")
 
-    gpu_btn = gr.Button(
-        "Show GPU Information"
-    )
-
-    gpu_text = gr.Textbox(
-        label="GPU Details",
+    gr.Textbox(
+        value=gpu_info_text,
+        label="AMD GPU Information",
+        interactive=False,
         lines=4
-    )
-
-    gpu_btn.click(
-        fn=get_gpu_info,
-        outputs=gpu_text
     )
 
     gr.Markdown(
