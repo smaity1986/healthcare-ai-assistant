@@ -58,8 +58,9 @@ def predict_image(image):
 
     return {
         "prediction": classes[prediction.item()],
-        "confidence": round(
-            confidence.item() * 100,
-            2
-        )
+        "confidence": round(confidence.item()*100,2),
+        "normal_probability":
+            round(probs[0][0].item()*100,2),
+        "pneumonia_probability":
+            round(probs[0][1].item()*100,2)
     }
