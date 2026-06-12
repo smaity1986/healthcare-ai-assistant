@@ -1,17 +1,8 @@
-from pathlib import Path
 from torchvision import datasets
 
-dataset_path = Path("dataset/train")
+dataset = datasets.ImageFolder(
+    "dataset/chest_xray/train"
+)
 
-print("Exists:", dataset_path.exists())
-print("Absolute:", dataset_path.resolve())
-
-print("\nContents:")
-
-for item in dataset_path.iterdir():
-    print(item)
-
-dataset = datasets.ImageFolder(dataset_path)
-
-print("\nClasses:", dataset.classes)
-print("Images:", len(dataset))
+print(dataset.classes)
+print(len(dataset))
