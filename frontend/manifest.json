@@ -1,0 +1,6 @@
+{
+  "name": "Healthcare Intelligence Assistant",
+  "short_name": "HealthAI",
+  "start_url": ".",
+  "display": "standalone"
+}
