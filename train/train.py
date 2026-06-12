@@ -60,7 +60,7 @@ optimizer = torch.optim.Adam(
 
 best_acc = 0
 
-epochs = 10
+epochs = 5
 
 for epoch in range(epochs):
 
